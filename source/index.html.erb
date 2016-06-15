@@ -1,10 +1,103 @@
 ---
-title: Welcome to Middleman
+title: Casaba Estates
 ---
 
-<div class="welcome">
-  <h1>Middleman is Watching</h1>
-  <p class="doc">
-    <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<!-- Hero -->
+
+<div class="hero" data-speed="1" data-type="background">
+	<%= image_tag 'title.svg', class: 'hero-logo' %>
+  <div class="hero-content">
+  </div>
+</div>
+
+<!-- About -->
+
+<div class="side-image">
+  <div class="images-wrapper"></div>
+    <div class="side-image-content">
+      <h4>Welcome</h4>
+      <h1>Message with a gradient image</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.</p>
+  </div>
+</div>
+
+<!-- Home Models/Unslider -->
+
+<div class="my-slider">
+  <ul>
+    <li>
+    <div><%= image_tag 'CASABA_1.jpg', class: 'prop-img' %></div>
+    <div>
+    	<h1>Model 1</h1>
+    </div>
+    </li>
+    <li>
+    <div><%= image_tag 'CASABA_2.jpg', class: 'prop-img' %></div>
+    </li>
+    <li><%= image_tag 'CASABA_3.jpg', class: 'prop-img' %></li>
+  </ul>
+</div>
+
+<!-- Map -->
+
+<div id="map_canvas"></div>
+
+<!-- Email List -->
+
+<div class="mailing">
+	<div class="b1">Join our mailing list</div>
+	<p>Subscribe to our mailing list to receive up to date news, listings, and more.</p>
+	<div class="mailform">
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+	<form action="//davidmaupin.us9.list-manage.com/subscribe/post?u=2b51bf18a6feb69e9e41ebc4e&amp;id=e3f2380823" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	  <div id="mc_embed_signup_scroll">
+			<div class="mc-field-group">
+				<label for="mce-EMAIL"></label>
+				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+			</div>
+			<div id="mce-responses" class="clear">
+				<div class="response" id="mce-error-response" style="display:none"></div>
+				<div class="response" id="mce-success-response" style="display:none"></div>
+			</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		   	<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b51bf18a6feb69e9e41ebc4e_e3f2380823" tabindex="-1" value=""></div>
+		   	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+	   </div>
+	</form>
+</div>
+
+<!--End mc_embed_signup-->
+	</div>
+</div>
+
+<!-- Footer -->
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+   <%= image_tag 'title.svg', class: 'hero-logo' %>
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><a href="javascript:void(0)">Products</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">YouTube</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+</footer>

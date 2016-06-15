@@ -1,0 +1,335 @@
+@charset "utf-8";
+
+@import "bourbon";
+@import "neat";
+@import "unslider-dots";
+@import "unslider";
+
+body {
+
+}
+
+h1 {
+
+}
+
+// Hero
+
+.hero {
+  $large-screen: 50em !default;
+  align-items: center;
+  background: image-url("background.jpg");
+  background-position: right;
+  background-size: none;
+  display: flex;
+  justify-content: center;
+  min-height: 25em;
+  padding: 2em;
+
+  @include media($large-screen) {
+    background-position: left;
+    background-size: cover;
+    justify-content: flex-end;
+  }
+
+  .hero-content {
+    max-width: 20em;
+    text-align: center;
+
+    @include media($large-screen) {
+      text-align: left;
+    }
+  }
+
+  .hero-logo {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+// Info
+
+.side-image {
+  $base-line-height: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $side-image-background-top: #B5EBEB;
+  $side-image-background-bottom: #5DAC5D;
+  $side-image-content-background: #F9F9F9;
+  $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
+
+  background: $side-image-content-background;
+
+  @include media($large-screen) {
+    @include row(table);
+  }
+
+  .images-wrapper {
+    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"),
+                linear-gradient($side-image-background-top, $side-image-background-bottom),
+                no-repeat $side-image-background-top scroll;
+    background-color: $side-image-background-top;
+    background-size: cover;
+    border-bottom: $side-image-border;
+    display: block;
+    min-height: 12em;
+    padding: 3em;
+
+    @include media($large-screen) {
+      @include span-columns(4);
+      background-position: bottom;
+      background-size: cover;
+      border-right: $side-image-border;
+    }
+  }
+
+  .side-image-content {
+    @include span-columns(12);
+    padding: 1em 1em 4em 1em;
+
+    @include media($large-screen) {
+      @include span-columns(8);
+      padding: 4em 4em 8em 4em;
+    }
+
+    h1 {
+      margin-bottom: 0.9em;
+    }
+
+    h4 {
+      background: #BBB;
+      color: white;
+      display: inline-block;
+      font-size: 0.75em;
+      margin-bottom: 1.3em;
+      padding: 3px 8px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $base-font-color;
+      line-height: $base-line-height;
+      margin-bottom: 3em;
+    }
+  }
+
+  @include reset-display();
+}
+
+// Home Models / Unslider
+
+.unslider{
+  overflow:auto;
+  position: relative;
+  margin:0;
+  padding:0;
+  @include span-columns(12);
+  @include omega();
+
+  img { display: block; width: 100%; height: auto; }
+}
+
+.unslider-wrap{
+  position:relative;
+}
+
+.unslider-wrap.unslider-carousel>li{
+  float:left;
+}
+
+.unslider-vertical>ul{
+  height:100%;
+}
+
+.unslider-vertical li{
+  float:none;
+  width:100%;
+}
+
+.unslider-fade{
+  position:relative;
+}
+
+.unslider-fade .unslider-wrap li{
+  position:absolute;
+  left:0;
+  top:0;
+  right:0;
+  z-index:8;
+}
+
+.unslider-fade .unslider-wrap li.unslider-active{
+  z-index:10;
+}
+
+.unslider li,.unslider ol,.unslider ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  border:none;
+}
+
+
+// Map
+
+#map_canvas {
+  height: 400px;
+  width: 100%;
+}
+
+#map_canvas img {
+  max-width: none; // to prevent UI control bug
+}
+
+#map_canvas .content {
+  padding: 0 0.5em 1em 0.5em;
+}
+
+#map_canvas .firstHeading {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1em;
+  margin: 0;
+}
+
+#map_canvas #bodyContent p {
+  font-size: 1em;
+  margin: 0;
+}
+
+// Mail List Sign Up
+
+// Mailing list for Mailchip signup
+
+.mailing {
+  @include outer-container();
+  @include span-columns(12);  
+  min-width: 100%;
+  min-height: 25vh;
+  background-color: white;
+  padding: 5em;
+  padding-top: 7.25em;
+  // padding-bottom: 12.25em;
+
+  p {
+    text-align: left;
+    -webkit-column-count: 1;
+  }
+
+    .mailform {
+      // display: flex;
+      width: 100%;
+    }
+
+    #mc_embed_signup_scroll {
+      display: flex;
+      min-width: 100%;
+    }
+
+    .mc-field-group {
+      width: 80%;
+    }
+
+    .clear {
+      width: 20%;
+      margin-left: 2px;
+
+    input {
+      background-color: black;
+      color: white;
+      outline: none;
+      cursor: pointer;
+    }
+
+    }
+
+    input [type=email]{
+      outline: none;
+    }
+
+    input [type=submit]{
+      background-color: black;
+      color: white;
+      outline: none;
+    }
+}
+
+
+// Footer
+
+.footer {
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $footer-background: desaturate(darken($action-color, 20%), 30%);
+  $footer-color: white;
+  $footer-link-color: transparentize($footer-color, 0.6);
+  $footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+  background: $footer-background;
+  padding: ($base-spacing * 2) $gutter;
+  width: 100%;
+
+  .footer-logo {
+    margin-bottom: 2em;
+    text-align: center;
+
+    img {
+      height: 3em;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: $base-spacing;
+  }
+
+  ul {
+    flex-basis: 13em;
+    flex-shrink: 0;
+    margin-bottom: $base-spacing * 2;
+    padding: 0;
+  }
+
+  li {
+    line-height: 1.5em;
+    list-style: none;
+    text-align: center;
+  }
+
+  li a {
+    color: $footer-link-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  li h3 {
+    color: $footer-color;
+    font-size: 1em;
+    margin-bottom: 0.4em;
+  }
+
+  hr {
+    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
+    margin: 0 auto $base-spacing;
+    width: 12em;
+  }
+
+  p {
+    color: $footer-disclaimer-color;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin: auto;
+    max-width: 35em;
+    text-align: center;
+  }
+}

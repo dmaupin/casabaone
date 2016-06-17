@@ -5,45 +5,85 @@
 @import "unslider-dots";
 @import "unslider";
 
-body {
+@import 'https://fonts.googleapis.com/css?family=Playfair+Display:400,900';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Display:200,400,900';
 
+body {
+  font-size: 100%;
+  font-weight: normal;
 }
 
-h1 {
+// Variables
 
+$large-screen: 50em !default;
+
+$playfair: 'Playfair Display', serif;
+$roboto: 'Roboto', sans-serif;
+$robototitle: 'Roboto', sans-serif;
+
+h1 {
+  font-family: $playfair;
+}
+
+p {
+  font-family: $roboto;
+}
+
+h4 {
+  font-family: $roboto;
+  font-weight: 900;
+}
+
+span {
+  color: white;
+  font-size: 2em;
+  font-family: $roboto;
+  font-weight: 200;
 }
 
 // Hero
 
 .hero {
-  $large-screen: 50em !default;
   align-items: center;
-  background: image-url("background.jpg");
+  background: image-url("background.jpg") fixed;
   background-position: right;
   background-size: none;
   display: flex;
   justify-content: center;
-  min-height: 25em;
+  min-height: 35em;
   padding: 2em;
 
   @include media($large-screen) {
-    background-position: left;
+    background-position: center;
     background-size: cover;
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .hero-content {
-    max-width: 20em;
+    // max-width: 20em;
     text-align: center;
 
     @include media($large-screen) {
-      text-align: left;
+      span {
+        font-size: 4.05em;
+      }
+    }
+
+    h1 {
+      color: white;
+      font-weight: 400;
     }
   }
 
   .hero-logo {
     width: 100%;
     margin: auto;
+  }
+
+  p {
+    color: white;
+    font-weight: 100;
+    letter-spacing: .05em;
   }
 }
 
@@ -67,21 +107,21 @@ h1 {
   }
 
   .images-wrapper {
-    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"),
+    background: url("/images/Doug.jpg"),
                 linear-gradient($side-image-background-top, $side-image-background-bottom),
                 no-repeat $side-image-background-top scroll;
     background-color: $side-image-background-top;
     background-size: cover;
-    border-bottom: $side-image-border;
+    // border-bottom: $side-image-border;
     display: block;
-    min-height: 12em;
+    min-height: 35em;
     padding: 3em;
 
     @include media($large-screen) {
       @include span-columns(4);
       background-position: bottom;
       background-size: cover;
-      border-right: $side-image-border;
+      // border-right: $side-image-border;
     }
   }
 
@@ -90,7 +130,7 @@ h1 {
     padding: 1em 1em 4em 1em;
 
     @include media($large-screen) {
-      @include span-columns(8);
+      @include span-columns(12);
       padding: 4em 4em 8em 4em;
     }
 
@@ -120,15 +160,145 @@ h1 {
 
 // Home Models / Unslider
 
+.model-info-container {
+  background-color: #f9f9f9;
+  min-height: 35em;
+  min-width: 100%;
+  @include span-columns(12);
+  padding: 1em 1em 4em 1em;
+
+  @include media($large-screen) {
+    @include span-columns(8);
+    padding: 0em 4em 3em 4em;
+  }
+}
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.grid-items-lines {
+  $base-background-color: white !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $grid-items-background: $base-background-color;
+  $grid-item-background: $base-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, 0.8);
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 6;
+  $grid-item-color: $base-font-color;
+  $grid-item-height: 14em;
+
+  @include clearfix;
+  position: relative;
+
+  .grid-item {
+    background: $grid-item-background;
+    border-bottom: $grid-item-border;
+    border-right: $grid-item-border;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 3em;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    &:focus,
+    &:hover {
+      background: transparentize($grid-item-color, 0.95);
+    }
+  }
+
+  .grid-item img {
+      display: block;
+      height: 2.5em;
+      margin-bottom: 1.2em;
+      opacity: 0.2;
+    }
+
+  .grid-item h1 {
+      color: $grid-item-color;
+      font-size: 1.3em;
+      margin-bottom: 0.4em;
+    }
+
+  .grid-item p {
+      color: transparentize($grid-item-color, 0.4);
+      line-height: 1.5em;
+      margin: auto;
+
+      @include media($medium-screen) {
+        max-width: 70%;
+      }
+    }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+    }
+    p {
+      @include media($medium-screen) {
+        max-width: 60%;
+      }
+    }
+  }
+
+  // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
+  .bottom-cover {
+    background: $grid-items-background;
+    bottom: 0;
+    height: 3px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .right-cover {
+    background: $grid-items-background;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 4px;
+  }
+}
+
+
+
+.model-info {
+  text-align: center;
+}
+
 .unslider{
   overflow:auto;
   position: relative;
   margin:0;
   padding:0;
+  background-color: #f9f9f9;
   @include span-columns(12);
   @include omega();
 
   img { display: block; width: 100%; height: auto; }
+}
+
+.unslider-arrow {
+  font-family: $roboto;
+}
+
+.unslider-arrow {
+  left: 4em;
+}
+
+.unslider-arrow.next {
+  right: 4em;
 }
 
 .unslider-wrap{
@@ -171,11 +341,20 @@ h1 {
   border:none;
 }
 
+.unslider-nav ol li {
+  border: 2px solid #9A9A9A;
+  width: 10px;
+  height: 10px;
+}
+
+.unslider-nav ol li.unslider-active {
+  background-color: #9A9A9A;
+}
 
 // Map
 
 #map_canvas {
-  height: 400px;
+  min-height: 35em;
   width: 100%;
 }
 
@@ -211,7 +390,7 @@ h1 {
   background-color: white;
   padding: 5em;
   padding-top: 7.25em;
-  // padding-bottom: 12.25em;
+  margin-bottom: 7em;
 
   p {
     text-align: left;
@@ -237,6 +416,7 @@ h1 {
       margin-left: 2px;
 
     input {
+      appearance: none;
       background-color: black;
       color: white;
       outline: none;
@@ -247,9 +427,11 @@ h1 {
 
     input [type=email]{
       outline: none;
+      min-width: 100%;
     }
 
     input [type=submit]{
+      appearance: none;
       background-color: black;
       color: white;
       outline: none;
@@ -274,6 +456,7 @@ h1 {
   width: 100%;
 
   .footer-logo {
+    margin-top: 3em;
     margin-bottom: 2em;
     text-align: center;
 

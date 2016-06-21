@@ -17,15 +17,6 @@ body {
 
 $accent: #AECABC;
 
-$primary-color: $accent !default;
-// $primary-color-light: lighten($accent, 15%) !default;
-// $primary-color-dark: darken($accent, 15%) !default;
-
-$secondary-color: color($accent) !default;
-$success-color: color($accent) !default;
-$error-color: color($accent) !default;
-$link-color: color($accent) !default;
-
 *::selection {
   background-color: $accent;
 }
@@ -34,9 +25,13 @@ $link-color: color($accent) !default;
 
 $large-screen: 50em !default;
 
+$mobile: 799px;
+
 $playfair: 'Trirong', serif;
 $roboto: 'Roboto', sans-serif;
 $robototitle: 'Roboto', sans-serif;
+
+// Typography
 
 h1 {
   font-family: $playfair;
@@ -68,52 +63,83 @@ span {
 
 // Buttons
 
+// Hero slide show
 
-// Hero
+.sect-banner {
+  display: table;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 
-.hero {
-  align-items: center;
-  background: image-url("background.jpg") fixed;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  min-height: 35em;
-  padding: 2em;
+  height: 35em;
+  background-color: $accent;
 
-  @include media($large-screen) {
-    background-position: inherit;
-    background-size: cover;
-    justify-content: center;
-  }
+  .title-vert {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    z-index: 4;
+    padding: 0 5%;
 
-  .hero-content {
-    // max-width: 20em;
-    text-align: center;
+    h1 {
+      color: white;
+      font-weight: 900;
+      margin-bottom: 0;
+    }
 
     @include media($large-screen) {
       span {
         font-size: 4.05em;
       }
     }
-
-    h1 {
-      color: white;
-      font-weight: 900;
-    }
-  }
-
-  .hero-logo {
-    width: 100%;
-    margin: auto;
-  }
-
-  p {
-    color: white;
-    font-weight: 100;
-    letter-spacing: .05em;
   }
 }
+
+  // Hero animation
+
+  @include keyframes(fade-out) {
+   33%{
+    opacity: 1
+   }
+   66%{
+   opacity: 0
+   }
+  }
+
+  ul.hero-slideshow{
+      list-style: none;
+      display: inline;
+      background-color: $accent;
+
+     li{  
+      height: 35em;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      background-position: center;
+      background-size: cover;
+      background-color: $accent;
+      z-index: 0;
+      opacity: 0;
+      background: image-url("slide1.png");
+      background-size: cover;
+      @include animation(fade-out 9s infinite both);
+     }
+     
+     li:nth-child(2){
+      background: image-url("slide2.png");
+      background-size: cover;
+      @include animation-delay(3s);
+      background-position: center;
+     }
+
+     li:nth-child(3){
+      background: image-url("slide3.png");
+      @include animation-delay(6s);
+      background-size: cover;
+      background-position: center;
+     }
+    }
 
 // Info
 
@@ -236,18 +262,6 @@ span {
   .bullet-icon-1 {
     background: $action-color;
   }
-
-  // .bullet-icon-2 {
-  //   background: adjust-hue($action-color, -25%);
-  // }
-
-  // .bullet-icon-3 {
-  //   background: adjust-hue($action-color, -50%);
-  // }
-
-  // .bullet-icon-4 {
-  //   background: adjust-hue($action-color, 25%);
-  // }
 
   .bullet-content {
     margin-bottom: 2em;

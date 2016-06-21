@@ -1,0 +1,643 @@
+@charset "utf-8";
+
+@import "bourbon";
+@import "neat";
+@import "unslider-dots";
+@import "unslider";
+
+@import 'https://fonts.googleapis.com/css?family=Trirong:400,800';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Display:200,400,900';
+
+body {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+// Colors
+
+$accent: #AECABC;
+
+$primary-color: $accent !default;
+// $primary-color-light: lighten($accent, 15%) !default;
+// $primary-color-dark: darken($accent, 15%) !default;
+
+$secondary-color: color($accent) !default;
+$success-color: color($accent) !default;
+$error-color: color($accent) !default;
+$link-color: color($accent) !default;
+
+*::selection {
+  background-color: $accent;
+}
+
+// Variables
+
+$large-screen: 50em !default;
+
+$playfair: 'Trirong', serif;
+$roboto: 'Roboto', sans-serif;
+$robototitle: 'Roboto', sans-serif;
+
+h1 {
+  font-family: $playfair;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: $roboto;
+  font-weight: 400;
+}
+
+p {
+  font-family: $roboto;
+  letter-spacing: 0.025em;
+}
+
+h3 {
+  font-family: $roboto;
+  font-weight: 200;
+  color: white;
+}
+
+span {
+  color: white;
+  font-size: 2em;
+  font-family: $playfair;
+  font-weight: 200;
+}
+
+// Buttons
+
+
+// Hero
+
+.hero {
+  align-items: center;
+  background: image-url("background.jpg") fixed;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 35em;
+  padding: 2em;
+
+  @include media($large-screen) {
+    background-position: inherit;
+    background-size: cover;
+    justify-content: center;
+  }
+
+  .hero-content {
+    // max-width: 20em;
+    text-align: center;
+
+    @include media($large-screen) {
+      span {
+        font-size: 4.05em;
+      }
+    }
+
+    h1 {
+      color: white;
+      font-weight: 900;
+    }
+  }
+
+  .hero-logo {
+    width: 100%;
+    margin: auto;
+  }
+
+  p {
+    color: white;
+    font-weight: 100;
+    letter-spacing: .05em;
+  }
+}
+
+// Info
+
+.side-image {
+  $base-line-height: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $side-image-background-top: #B5EBEB;
+  $side-image-background-bottom: #5DAC5D;
+  $side-image-content-background: #F9F9F9;
+  $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
+
+  background: $side-image-content-background;
+
+  @include media($large-screen) {
+    @include row(table);
+  }
+
+  .images-wrapper {
+    background: url("/images/Doug.jpg"),
+                linear-gradient($side-image-background-top, $side-image-background-bottom),
+                no-repeat $side-image-background-top scroll;
+    background-color: $side-image-background-top;
+    background-size: cover;
+    // border-bottom: $side-image-border;
+    display: block;
+    min-height: 35em;
+    padding: 3em;
+
+    @include media($large-screen) {
+      @include span-columns(4);
+      background-position: bottom;
+      background-size: cover;
+      // border-right: $side-image-border;
+    }
+  }
+
+  .side-image-content {
+    @include span-columns(12);
+    padding: 1em 1em 4em 1em;
+
+    @include media($large-screen) {
+      @include span-columns(12);
+      padding: 4em 4em 4em 4em;
+    }
+
+    h1 {
+      margin-bottom: 0.9em;
+    }
+
+    h4 {
+      background: $accent;
+      color: white;
+      display: inline-block;
+      font-size: 0.75em;
+      margin-bottom: 1.3em;
+      padding: 3px 8px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $base-font-color;
+      line-height: $base-line-height;
+      margin-bottom: 3em;
+    }
+
+    $icon-bullet-size: 4em;
+    
+    .bullet-icon {
+      background: $accent;
+      // border-radius: 50%;
+      float: left;
+      height: $icon-bullet-size;
+      padding: $icon-bullet-size / 8;
+      width: $icon-bullet-size;
+      margin-right: 1em;
+    }
+  }
+
+  @include reset-display();
+}
+
+// Details
+
+.bullets {
+  $base-line-height: 1.5em !default;
+  $action-color: $accent !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $icon-bullet-size: 4em;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+  margin-bottom: $base-line-height;
+  overflow: auto;
+  padding: 0;
+
+  @include media($large-screen) {
+    padding: 4em 0em 0em 0em;
+  }
+
+  .bullet {
+    flex-basis: 20em;
+    flex-grow: 1;
+  }
+
+  .bullet-icon {
+    background: $action-color;
+    border-radius: 50%;
+    float: left;
+    height: $icon-bullet-size;
+    padding: $icon-bullet-size / 5;
+    width: $icon-bullet-size;
+    margin-right: 1em;
+  }
+
+  .bullet-icon-1 {
+    background: $action-color;
+  }
+
+  // .bullet-icon-2 {
+  //   background: adjust-hue($action-color, -25%);
+  // }
+
+  // .bullet-icon-3 {
+  //   background: adjust-hue($action-color, -50%);
+  // }
+
+  // .bullet-icon-4 {
+  //   background: adjust-hue($action-color, 25%);
+  // }
+
+  .bullet-content {
+    margin-bottom: 2em;
+    // margin-left: $icon-bullet-size * 1.4;
+  }
+
+  h2 {
+    border-bottom: 1px solid transparentize($base-font-color, 0.8);
+    display: inline-block;
+    font-family: $playfair;
+    font-size: $icon-bullet-size / 2.5;
+    margin: 0 0 ($icon-bullet-size / 6) 0;
+    padding-top: $icon-bullet-size / 8.5;
+  }
+
+  li {
+    list-style: none;
+
+    @include media($large-screen) {
+      min-width: 50%;
+      padding: 0em 1em 0em 0em;
+    }
+  }
+
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+
+// Home Models / Unslider
+
+.model-info-container {
+  background-color: #f9f9f9;
+  min-height: 35em;
+  min-width: 100%;
+  @include span-columns(12);
+  padding: 1em 1em 4em 1em;
+
+  @include media($large-screen) {
+    @include span-columns(8);
+    padding: 0em 4em 3em 4em;
+  }
+}
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.grid-items-lines {
+  $base-background-color: white !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $grid-items-background: $base-background-color;
+  $grid-item-background: $base-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, 0.8);
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 6;
+  $grid-item-color: $base-font-color;
+  $grid-item-height: 14em;
+
+  @include clearfix;
+  position: relative;
+
+  .grid-item {
+    background: $grid-item-background;
+    border-bottom: $grid-item-border;
+    border-right: $grid-item-border;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 3em;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    &:focus,
+    &:hover {
+      background: transparentize($grid-item-color, 0.95);
+    }
+  }
+
+  .grid-item img {
+      display: block;
+      height: 2.5em;
+      margin-bottom: 1.2em;
+      opacity: 0.2;
+    }
+
+  .grid-item h1 {
+      color: $grid-item-color;
+      font-size: 1.3em;
+      margin-bottom: 0.4em;
+    }
+
+  .grid-item p {
+      color: transparentize($grid-item-color, 0.4);
+      line-height: 1.5em;
+      margin: auto;
+
+      @include media($medium-screen) {
+        max-width: 70%;
+      }
+    }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+    }
+    p {
+      @include media($medium-screen) {
+        max-width: 60%;
+      }
+    }
+  }
+
+  // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
+  .bottom-cover {
+    background: $grid-items-background;
+    bottom: 0;
+    height: 3px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .right-cover {
+    background: $grid-items-background;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 4px;
+  }
+}
+
+
+
+.model-info {
+  text-align: center;
+}
+
+.unslider{
+  overflow:auto;
+  position: relative;
+  margin:0;
+  padding:0;
+  background-color: #f9f9f9;
+  @include span-columns(12);
+  @include omega();
+
+  img { display: block; width: 100%; height: auto; }
+}
+
+.unslider-arrow {
+  font-family: $roboto;
+}
+
+.unslider-arrow {
+  left: 4em;
+}
+
+.unslider-arrow.next {
+  right: 4em;
+}
+
+.unslider-wrap{
+  position:relative;
+}
+
+.unslider-wrap.unslider-carousel>li{
+  float:left;
+}
+
+.unslider-vertical>ul{
+  height:100%;
+}
+
+.unslider-vertical li{
+  float:none;
+  width:100%;
+}
+
+.unslider-fade{
+  position:relative;
+}
+
+.unslider-fade .unslider-wrap li{
+  position:absolute;
+  left:0;
+  top:0;
+  right:0;
+  z-index:8;
+}
+
+.unslider-fade .unslider-wrap li.unslider-active{
+  z-index:10;
+}
+
+.unslider li,.unslider ol,.unslider ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  border:none;
+}
+
+.unslider-nav ol li {
+  border: 2px solid $accent;
+  width: 10px;
+  height: 10px;
+}
+
+.unslider-nav ol li.unslider-active {
+  background-color: $accent;
+}
+
+// Map
+
+#map_canvas {
+  min-height: 35em;
+  width: 100%;
+}
+
+#map_canvas img {
+  max-width: none; // to prevent UI control bug
+}
+
+#map_canvas .content {
+  padding: 0 0.5em 1em 0.5em;
+}
+
+#map_canvas .firstHeading {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1em;
+  margin: 0;
+}
+
+#map_canvas #bodyContent p {
+  font-size: 1em;
+  margin: 0;
+}
+
+// Mail List Sign Up
+
+// Mailing list for Mailchip signup
+
+.mailing {
+  @include outer-container();
+  @include span-columns(12);  
+  min-width: 100%;
+  min-height: 25vh;
+  background-color: $accent;
+  padding: 5em;
+  padding-bottom: 7em;
+  margin-bottom: 7em;
+
+  p {
+    text-align: left;
+    -webkit-column-count: 1;
+  }
+
+    .mailform {
+      // display: flex;
+      width: 100%;
+    }
+
+    #mc_embed_signup_scroll {
+      display: flex;
+      min-width: 100%;
+    }
+
+    .mc-field-group {
+      width: 80%;
+    }
+
+    .clear {
+      width: 20%;
+      margin-left: 2px;
+
+    input {
+      appearance: none;
+      background-color: black;
+      color: white;
+      outline: none;
+      cursor: pointer;
+    }
+
+    }
+
+    input [type=email]{
+      outline: none;
+      min-width: 100%;
+    }
+
+    input [type=submit]{
+      appearance: none;
+      background-color: black;
+      color: white;
+      outline: none;
+    }
+}
+
+
+// Footer
+
+.footer {
+  $base-spacing: 1.5em !default;
+  $action-color: $accent !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $footer-background: desaturate(darken($action-color, 20%), 30%);
+  $footer-color: white;
+  $footer-link-color: transparentize($footer-color, 0.6);
+  $footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+  background: $footer-background;
+  padding: ($base-spacing * 2) $gutter;
+  width: 100%;
+
+  .footer-logo {
+    margin-top: 3em;
+    margin-bottom: 2em;
+    text-align: center;
+
+    img {
+      height: 3em;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: $base-spacing;
+  }
+
+  ul {
+    flex-basis: 13em;
+    flex-shrink: 0;
+    margin-bottom: $base-spacing * 2;
+    padding: 0;
+  }
+
+  li {
+    line-height: 1.5em;
+    list-style: none;
+    text-align: center;
+  }
+
+  li a {
+    color: $footer-link-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  li h3 {
+    color: $footer-color;
+    font-size: 1em;
+    margin-bottom: 0.4em;
+  }
+
+  hr {
+    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
+    margin: 0 auto $base-spacing;
+    width: 12em;
+  }
+
+  p {
+    color: $footer-disclaimer-color;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin: auto;
+    max-width: 35em;
+    text-align: center;
+  }
+}

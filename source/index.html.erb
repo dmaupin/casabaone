@@ -1,10 +1,236 @@
 ---
-title: Welcome to Middleman
+title: Casaba Estates
 ---
 
-<div class="welcome">
-  <h1>Middleman is Watching</h1>
-  <p class="doc">
-    <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<!-- Hero -->
+
+<div class="hero" data-speed="0" data-type="background">
+  <div class="hero-content">
+  <h1><span>Casaba Estates</span></h1>
+	<h3>A new Rolling Hills Estates community</h3>
+  </div>
+</div>
+
+<!-- About -->
+
+<div class="side-image">
+  <!-- <div class="images-wrapper"></div> -->
+    <div class="side-image-content">
+      <h4>Welcome</h4>
+      <h1>Casaba Estates</h1>
+      <p>Discover a new community coming soon to the beautiful city of Rolling Hills Estates. Emerald at Casaba Estates, by Emerald Homes, will offer 5 new semi-custom luxury single-family homes. These homes will feature expansive floor plans with up to approximately 4,836 square feet, up to 5 bedrooms, and up to 4.5 baths. Adjacent to both Rolling Hills Country Club, and Jack Kramer tennis club. Pre-sale opportunities available now.</p>
+
+     <!-- Details -->
+
+  	<ul class="bullets">
+		  <li class="bullet">
+		    <div class="bullet-icon bullet-icon-1">		    
+		      <%= image_tag 'exterior.svg' %>
+		    </div>
+		    <div class="bullet-content">
+		      <h2>Crafted Exteriors</h2>
+		      <p>Spanish Colonial, Spanish Revival and Monterey architectural styles, Three-coat fine-sand-finish stucco, Large two-car garage, Garage door with opener and transmitters, Inviting 8’ front entry door with SmartKey® Kwikset® deadbolt handleset, Seamless 6” half-round roof gutters, Solar-reflective concrete Eagle® tile roofing with an SRI value greater than 15 (not shown on model)</p>
+		      </div>
+		  </li>  
+		  <li class="bullet">
+		    <div class="bullet-icon bullet-icon-4">
+		      <%= image_tag 'interior.svg' %>
+		    </div>
+		    <div class="bullet-content">
+		      <h2>Impressive Interiors</h2>
+		      <p>Designer-selected Daltile® ceramic tile in entry, kitchen, baths and laundry room, Sustainable Mohawk® carpeting with advanced soil and stain protection in living spaces and bedrooms, Appealing recessed can lighting at kitchen, hallways, dining room, parlor, great room, laundry room, closets and bathrooms, with dimmer switch at select locations, Chic rocker-style light switches lend modern flair, Maple raised-panel cabinetry throughout dressed with espresso, spice or cognac stain and brushed nickel bar pulls, Spacio</p>
+		    </div>
+		  </li>
+		  <li class="bullet">
+		    <div class="bullet-icon bullet-icon-2">
+		      <%= image_tag 'bed.svg' %>
+		    </div>
+		    <div class="bullet-content">
+		      <h2>Master Suites</h2>
+		      <p>Enticing acrylic tub or Kohler® Sunstruck® freestanding tub, per plan, Classic tan e-stone countertops embody elegance, Sophisticated Moen® chrome fixtures, Beautiful vanity with undermount square sinks, Grand 42” framed mirror with beveled edge over vanity, Moen® towel bars in chrome finish, 36” frameless mirrored medicine cabinets</p>
+		    </div>
+		  </li>		   
+		  <li class="bullet">
+		    <div class="bullet-icon bullet-icon-3">
+		     <%= image_tag 'dinner.svg' %>
+		    </div>
+		    <div class="bullet-content">
+		      <h2>Gourmet Kitchens</h2>
+		      <p>Professional series GE Monogram® stainless steel appliances: - 48” six-burner gas range with griddle - 48” hood - 30” electric wall oven - Built-in microwave - Energy-efficient dishwasher, Striking granite slab kitchen countertops with full-height white 3”x6” subway tile Daltile® backsplash, Full-overlay raised-panel maple cabinetry with brushed nickel hardware, Kohler® cast iron two-compartment undermount sink and Moen® pullout faucet, Convenient, appealing and illuminating under-cabinet lighting, Insinkerator® garbage disposal, Pre-plumbed for ice maker</p>
+		    </div>
+		  </li> 
+		</ul>
+
+
+  </div>
+</div>
+
+<!-- Home Models/Unslider -->
+
+<div class="my-slider">
+  <ul>
+    <li>
+    <div><%= image_tag 'CASABA_1.jpg', class: 'prop-img' %></div>
+    <div class="model-info model-info-container">
+    	<h1>Model 1</h1>
+		  <div class="grid-items-lines">
+			  <a href="javascript:void(0)" class="grid-item">
+			    <h1>4 Bedrooms</h1>
+			    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item">		
+			    <h1>3.5 Bathrooms</h1>
+			    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item">
+			    <h1>4,112 Square Feet</h1>
+			    <p>Lorem ipsum dolor sit amet, elit.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item grid-item-big">
+			    <h1>$2,775,000</h1>
+			    <p>List price.</p>
+			  </a>
+				<a href="javascript:void(0)" class="grid-item grid-item-big">
+			    <h1>Grid Item</h1>
+			    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+			  </a>
+			  <div class="right-cover"></div>
+			  <div class="bottom-cover"></div>
+			</div>
+		</div>
+    </li>
+    <li>
+    <div><%= image_tag 'CASABA_2.jpg', class: 'prop-img' %></div>
+        <div class="model-info model-info-container">
+    	<h1>Model 2</h1>
+		  <div class="grid-items-lines">
+			  <a href="javascript:void(0)" class="grid-item">
+			    <h1>4 Bedrooms</h1>
+			    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item">		
+			    <h1>3.5 Bathrooms</h1>
+			    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item">
+			    <h1>4,112 Square Feet</h1>
+			    <p>Lorem ipsum dolor sit amet, elit.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item grid-item-big">
+			    <h1>$2,775,000</h1>
+			    <p>List price.</p>
+			  </a>
+				<a href="javascript:void(0)" class="grid-item grid-item-big">
+			    <h1>Grid Item</h1>
+			    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+			  </a>
+			  <div class="right-cover"></div>
+			  <div class="bottom-cover"></div>
+			</div>
+		</div>
+    </li>
+    <li><%= image_tag 'CASABA_3.jpg', class: 'prop-img' %>
+    	    <div class="model-info model-info-container">
+    	<h1>Model 3</h1>
+		  <div class="grid-items-lines">
+			  <a href="javascript:void(0)" class="grid-item">
+			    <h1>4 Bedrooms</h1>
+			    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item">		
+			    <h1>3.5 Bathrooms</h1>
+			    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item">
+			    <h1>4,112 Square Feet</h1>
+			    <p>Lorem ipsum dolor sit amet, elit.</p>
+			  </a>
+			  <a href="javascript:void(0)" class="grid-item grid-item-big">
+			    <h1>$2,775,000</h1>
+			    <p>List price.</p>
+			  </a>
+				<a href="javascript:void(0)" class="grid-item grid-item-big">
+			    <h1>Grid Item</h1>
+			    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+			  </a>
+			  <div class="right-cover"></div>
+			  <div class="bottom-cover"></div>
+			</div>
+		</div>
+    </li>
+  </ul>
+</div>
+
+<!-- Map -->
+
+<div id="map_canvas"></div>
+
+<!-- Offered by -->
+
+<div class="side-image">
+  <div class="images-wrapper"></div>
+    <div class="side-image-content">
+      <h4>Offered by</h4>
+      <h1>Douglas Maupin & Maupin Realtors</h1>
+      <p>Discover a new community coming soon to the beautiful city of Rolling Hills Estates. Emerald at Casaba Estates, by Emerald Homes, will offer 5 new semi-custom luxury single-family homes. These homes will feature expansive floor plans with up to approximately 4,836 square feet, up to 5 bedrooms, and up to 4.5 baths. Adjacent to both Rolling Hills Country Club, and Jack Kramer tennis club. Pre-sale opportunities available now.</p>
+      <div class="bullet-icon bullet-icon-1">		    
+		    <%= image_tag 'mr.svg' %>
+		  </div>
+  </div>
+</div>
+
+<!-- Email List -->
+
+<div class="mailing">
+	<h1>Join our mailing list</h1>
+	<p>Subscribe to our mailing list to receive up to date news, listings, and more.</p>
+	<div class="mailform">
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+	<form action="//davidmaupin.us9.list-manage.com/subscribe/post?u=2b51bf18a6feb69e9e41ebc4e&amp;id=e3f2380823" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	  <div id="mc_embed_signup_scroll">
+			<div class="mc-field-group">
+				<label for="mce-EMAIL"></label>
+				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+			</div>
+			<div id="mce-responses" class="clear">
+				<div class="response" id="mce-error-response" style="display:none"></div>
+				<div class="response" id="mce-success-response" style="display:none"></div>
+			</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		   	<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b51bf18a6feb69e9e41ebc4e_e3f2380823" tabindex="-1" value=""></div>
+		   	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-flat"></div>
+	   </div>
+	</form>
+</div>
+<!--End mc_embed_signup-->
+	</div>
+</div>
+
+<!-- Footer -->
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-logo"><%= image_tag 'icon.svg' %></div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><a href="javascript:void(0)">Products</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">YouTube</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+</footer>

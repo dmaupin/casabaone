@@ -194,6 +194,10 @@ span {
       margin-bottom: 0.9em;
     }
 
+    h2 {
+      font-family: $playfair;
+    }
+
     h4 {
       background: $accent;
       color: white;
@@ -210,7 +214,21 @@ span {
       margin-bottom: 3em;
     }
 
-    $icon-bullet-size: 4em;
+    .fa {
+      color: $accent
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      color: #767676;
+      transition: color .25s;
+    }
+
+    $icon-bullet-size: 5em;
     
     .bullet-icon {
       background: $accent;
@@ -547,10 +565,9 @@ span {
     -webkit-column-count: 1;
   }
 
-    .mailform {
+  .mailform {
       // display: flex;
       width: 100%;
-    }
 
     #mc_embed_signup_scroll {
       display: flex;
@@ -558,11 +575,23 @@ span {
     }
 
     .mc-field-group {
-      width: 80%;
+      width: 100%;
+
+    input {
+      font-family: $roboto; 
+      height: 3em;
+      padding: .5em;
+      width: 75%;
+      border: none;
+      border-radius: 2px;
+    }
+    
     }
 
+  }
+
     .clear {
-      width: 20%;
+      width: 25%;
       margin-left: 2px;
 
     input {
@@ -570,21 +599,15 @@ span {
       background-color: black;
       color: white;
       outline: none;
+      border: none;
+      border-radius: 2px;
       cursor: pointer;
+      font-family: $roboto;
+      height: 3em;
+      padding: .5em;
+      width: 100%;
     }
 
-    }
-
-    input [type=email]{
-      outline: none;
-      min-width: 100%;
-    }
-
-    input [type=submit]{
-      appearance: none;
-      background-color: black;
-      color: white;
-      outline: none;
     }
 }
 

@@ -16,3 +16,5 @@ gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
 gem "bourbon"
 
 gem "neat"
+
+gem 'font-awesome-sass'

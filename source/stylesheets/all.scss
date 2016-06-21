@@ -5,7 +5,7 @@
 @import "unslider-dots";
 @import "unslider";
 
-@import 'https://fonts.googleapis.com/css?family=Playfair+Display:400,900';
+@import 'https://fonts.googleapis.com/css?family=Trirong:400,800';
 @import 'https://fonts.googleapis.com/css?family=Roboto+Display:200,400,900';
 
 body {
@@ -13,48 +13,76 @@ body {
   font-weight: normal;
 }
 
+// Colors
+
+$accent: #AECABC;
+
+$primary-color: $accent !default;
+// $primary-color-light: lighten($accent, 15%) !default;
+// $primary-color-dark: darken($accent, 15%) !default;
+
+$secondary-color: color($accent) !default;
+$success-color: color($accent) !default;
+$error-color: color($accent) !default;
+$link-color: color($accent) !default;
+
+*::selection {
+  background-color: $accent;
+}
+
 // Variables
 
 $large-screen: 50em !default;
 
-$playfair: 'Playfair Display', serif;
+$playfair: 'Trirong', serif;
 $roboto: 'Roboto', sans-serif;
 $robototitle: 'Roboto', sans-serif;
 
 h1 {
   font-family: $playfair;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: $roboto;
+  font-weight: 400;
 }
 
 p {
   font-family: $roboto;
+  letter-spacing: 0.025em;
 }
 
-h4 {
+h3 {
   font-family: $roboto;
-  font-weight: 900;
+  font-weight: 200;
+  color: white;
 }
 
 span {
   color: white;
   font-size: 2em;
-  font-family: $roboto;
+  font-family: $playfair;
   font-weight: 200;
 }
+
+// Buttons
+
 
 // Hero
 
 .hero {
   align-items: center;
   background: image-url("background.jpg") fixed;
-  background-position: right;
-  background-size: none;
+  background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   min-height: 35em;
   padding: 2em;
 
   @include media($large-screen) {
-    background-position: center;
+    background-position: inherit;
     background-size: cover;
     justify-content: center;
   }
@@ -131,7 +159,7 @@ span {
 
     @include media($large-screen) {
       @include span-columns(12);
-      padding: 4em 4em 8em 4em;
+      padding: 4em 4em 4em 4em;
     }
 
     h1 {
@@ -139,7 +167,7 @@ span {
     }
 
     h4 {
-      background: #BBB;
+      background: $accent;
       color: white;
       display: inline-block;
       font-size: 0.75em;
@@ -153,6 +181,18 @@ span {
       line-height: $base-line-height;
       margin-bottom: 3em;
     }
+
+    $icon-bullet-size: 4em;
+    
+    .bullet-icon {
+      background: $accent;
+      // border-radius: 50%;
+      float: left;
+      height: $icon-bullet-size;
+      padding: $icon-bullet-size / 8;
+      width: $icon-bullet-size;
+      margin-right: 1em;
+    }
   }
 
   @include reset-display();
@@ -160,104 +200,85 @@ span {
 
 // Details
 
-.accordion-tabs {
-  $base-border-color: #dcdcdc !default;
-  $base-border-radius: 3px !default;
-  $base-background-color: #fff !default;
-  $base-spacing: 1.5em !default;
-  $action-color: #477dca !default;
+.bullets {
+  $base-line-height: 1.5em !default;
+  $action-color: $accent !default;
   $dark-gray: #333 !default;
-  $light-gray: #ddd !default;
-  $medium-screen: 40em !default;
-  $tab-border: 1px solid $base-border-color;
-  $tab-content-background: lighten($light-gray, 10);
-  $tab-active-background: $tab-content-background;
-  $tab-inactive-color: $base-background-color;
-  $tab-inactive-hover-color: darken($light-gray, 5);
-  $tab-mode: $medium-screen;
+  $base-font-color: $dark-gray !default;
+  $icon-bullet-size: 4em;
 
-  @include clearfix;
-  line-height: 1.5;
-  margin-bottom: $base-spacing;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+  margin-bottom: $base-line-height;
+  overflow: auto;
   padding: 0;
 
-  @include media(max-width $tab-mode) {
-    border: $tab-border;
-    border-radius: $base-border-radius;
+  @include media($large-screen) {
+    padding: 4em 0em 0em 0em;
   }
 
-  .tab-header-and-content {
+  .bullet {
+    flex-basis: 20em;
+    flex-grow: 1;
+  }
+
+  .bullet-icon {
+    background: $action-color;
+    border-radius: 50%;
+    float: left;
+    height: $icon-bullet-size;
+    padding: $icon-bullet-size / 5;
+    width: $icon-bullet-size;
+    margin-right: 1em;
+  }
+
+  .bullet-icon-1 {
+    background: $action-color;
+  }
+
+  // .bullet-icon-2 {
+  //   background: adjust-hue($action-color, -25%);
+  // }
+
+  // .bullet-icon-3 {
+  //   background: adjust-hue($action-color, -50%);
+  // }
+
+  // .bullet-icon-4 {
+  //   background: adjust-hue($action-color, 25%);
+  // }
+
+  .bullet-content {
+    margin-bottom: 2em;
+    // margin-left: $icon-bullet-size * 1.4;
+  }
+
+  h2 {
+    border-bottom: 1px solid transparentize($base-font-color, 0.8);
+    display: inline-block;
+    font-family: $playfair;
+    font-size: $icon-bullet-size / 2.5;
+    margin: 0 0 ($icon-bullet-size / 6) 0;
+    padding-top: $icon-bullet-size / 8.5;
+  }
+
+  li {
     list-style: none;
 
-    @include media($tab-mode) {
-      display: inline;
-    }
-
-    &:first-child .tab-link {
-      border-top-left-radius: $base-border-radius;
-      border-top-right-radius: $base-border-radius;
-
-      @include media(max-width $tab-mode) {
-        border-top: 0;
-      }
-    }
-
-    &:last-child .tab-link {
-      @include media(max-width $tab-mode) {
-        border-bottom-left-radius: $base-border-radius;
-        border-bottom-right-radius: $base-border-radius;
-      }
+    @include media($large-screen) {
+      min-width: 50%;
+      padding: 0em 1em 0em 0em;
     }
   }
 
-  .tab-link {
-    background-color: $tab-inactive-color;
-    border-top: $tab-border;
-    color: $dark-gray;
-    display: block;
-    font-weight: bold;
-    padding: ($base-spacing / 2) ($gutter / 2);
-    text-decoration: none;
-
-    @include media($tab-mode) {
-      @include border-top-radius($base-border-radius);
-      border-top: 0;
-      display: inline-block;
-    }
-
-    &:hover {
-      color: $action-color;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &.is-active {
-      background-color: $tab-active-background;
-
-      @include media($tab-mode) {
-        background-color: $tab-active-background;
-        border: $tab-border;
-        border-bottom-color: $tab-active-background;
-        margin-bottom: -1px;
-      }
-    }
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
   }
 
-  .tab-content {
-    background: $tab-content-background;
-    display: none;
-    padding: $base-spacing $gutter;
-    width: 100%;
-
-    @include media($tab-mode) {
-      border: $tab-border;
-      border-bottom-left-radius: $base-border-radius;
-      border-bottom-right-radius: $base-border-radius;
-      border-top-right-radius: $base-border-radius;
-      float: left;
-    }
+  img {
+    max-width: 100%;
   }
 }
 
@@ -446,13 +467,13 @@ span {
 }
 
 .unslider-nav ol li {
-  border: 2px solid #9A9A9A;
+  border: 2px solid $accent;
   width: 10px;
   height: 10px;
 }
 
 .unslider-nav ol li.unslider-active {
-  background-color: #9A9A9A;
+  background-color: $accent;
 }
 
 // Map
@@ -491,9 +512,9 @@ span {
   @include span-columns(12);  
   min-width: 100%;
   min-height: 25vh;
-  background-color: white;
+  background-color: $accent;
   padding: 5em;
-  padding-top: 7.25em;
+  padding-bottom: 7em;
   margin-bottom: 7em;
 
   p {
@@ -547,7 +568,7 @@ span {
 
 .footer {
   $base-spacing: 1.5em !default;
-  $action-color: #477DCA !default;
+  $action-color: $accent !default;
   $medium-screen: 40em !default;
   $large-screen: 53.75em !default;
   $footer-background: desaturate(darken($action-color, 20%), 30%);

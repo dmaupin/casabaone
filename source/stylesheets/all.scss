@@ -655,6 +655,16 @@ span {
     }
   }
 
+  .dingbat {
+    margin-top: 2em;
+    width: 100%;
+    margin-left: auto;
+    text-align: center;
+    img {
+      height: 5em;
+    }
+  }
+
   .footer-links {
     font-family: $roboto;
     display: flex;
@@ -675,10 +685,6 @@ span {
     line-height: 1.5em;
     list-style: none;
     text-align: center;
-
-    .dingbat {
-      width: 15%;
-    }
   }
 
   // li a {

@@ -29,7 +29,7 @@ $accent: #AECABC;
 $large-screen: 50em !default;
 
 // $mobile: 799px;
-$mobile: new-breakpoint(max-width 799px);
+$mobile: new-breakpoint(max-width 699px);
 
 $playfair: 'Trirong', serif;
 $roboto: 'Roboto', sans-serif;
@@ -103,7 +103,7 @@ span {
       color: white;
       font-weight: 900;
       margin-bottom: 5px;
-      line-height: 1em;
+      line-height: 2.25em;
 
       @include media($mobile) {
         line-height: 1;
@@ -580,14 +580,11 @@ span {
 // Mailing list for Mailchip signup
 
 .mailing {
-  @include outer-container();
-  @include span-columns(12);  
   min-width: 100%;
-  min-height: 25vh;
+  // height: 25vh;
   background-color: $accent;
   padding: 3em;
   padding-bottom: 5em;
-  margin-bottom: 1em;
 
   p {
     text-align: left;
@@ -664,6 +661,7 @@ span {
   background: $footer-background;
   padding: ($base-spacing * 2) $gutter;
   width: 100%;
+  z-index: 1010101;
 
   .footer-logo {
     margin-bottom: -2em;

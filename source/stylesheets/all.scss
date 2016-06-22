@@ -13,6 +13,7 @@
 body {
   font-size: 100%;
   font-weight: normal;
+  transition: all 0.25s ease;
 }
 
 // Colors
@@ -27,7 +28,8 @@ $accent: #AECABC;
 
 $large-screen: 50em !default;
 
-$mobile: 799px;
+// $mobile: 799px;
+$mobile: new-breakpoint(max-width 799px);
 
 $playfair: 'Trirong', serif;
 $roboto: 'Roboto', sans-serif;
@@ -38,6 +40,7 @@ $robototitle: 'Roboto', sans-serif;
 h1 {
   font-family: $playfair;
   font-weight: 400;
+  line-height: 1.5em;
 }
 
 h2 {
@@ -94,15 +97,25 @@ span {
     position: relative;
     z-index: 4;
     padding: 0 5%;
+    left: -20px;
 
     h1 {
       color: white;
       font-weight: 900;
-      margin-bottom: -40px;
+      margin-bottom: 5px;
+      line-height: 1em;
+
+      @include media($mobile) {
+        line-height: 1;
+        margin-bottom: 0;
+      }
     }
 
     .dingbat {
       width: 15%;
+      @include media ($mobile) {
+        width: 25%;
+      }
     }
 
     @include media($large-screen) {
@@ -182,9 +195,9 @@ span {
     background: url("/images/Doug.jpg"),
                 linear-gradient($side-image-background-top, $side-image-background-bottom),
                 no-repeat $side-image-background-top scroll;
-    background-color: $side-image-background-top;
+    background-color: $accent;
+    background-position: center;
     background-size: cover;
-    // border-bottom: $side-image-border;
     display: block;
     min-height: 35em;
     padding: 3em;
@@ -448,8 +461,6 @@ span {
   }
 }
 
-
-
 .model-info {
   text-align: center;
 }
@@ -574,8 +585,8 @@ span {
   min-width: 100%;
   min-height: 25vh;
   background-color: $accent;
-  padding: 5em;
-  padding-bottom: 7em;
+  padding: 3em;
+  padding-bottom: 5em;
   margin-bottom: 1em;
 
   p {
@@ -602,6 +613,9 @@ span {
       width: 75%;
       border: none;
       border-radius: 2px;
+      @include media($mobile) {
+        width: 100%;
+      }
     }
     
     }
@@ -611,6 +625,11 @@ span {
     .clear {
       width: 25%;
       margin-left: 2px;
+
+      @include media($mobile) {
+        width: 100%;
+        margin-left: 0px;
+      }
 
     input {
       appearance: none;
@@ -672,36 +691,6 @@ span {
     justify-content: center;
     margin-bottom: $base-spacing;
   }
-
-  ul {
-    flex-basis: 13em;
-    flex-shrink: 0;
-    margin-bottom: $base-spacing * 2;
-    padding: 0;
-    display: inline-block;
-  }
-
-  li {
-    line-height: 1.5em;
-    list-style: none;
-    text-align: center;
-  }
-
-  // li a {
-  //   color: $footer-link-color;
-  //   text-decoration: none;
-
-  //   &:focus,
-  //   &:hover {
-  //     color: transparentize($footer-color, 0);
-  //   }
-  // }
-
-  // li h3 {
-  //   color: $footer-color;
-  //   font-size: 1em;
-  //   margin-bottom: 0.4em;
-  // }
 
   hr {
     border: 1px solid transparentize($footer-disclaimer-color, 0.3);

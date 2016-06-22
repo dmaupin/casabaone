@@ -25,7 +25,7 @@
         mapCanvas = document.getElementById('map_canvas'),
         mapOptions = {
           center: mapCenter,
-          zoom: 15,
+          zoom: 16,
           scrollwheel: false,
           draggable: true,
           disableDefaultUI: true,
@@ -54,12 +54,11 @@
     return {
       init: function () {
         map.set('styles', [{
-          featureType: 'landscape',
-          elementType: 'geometry',
+          featureType: 'all',
+          elementType: 'all',
           stylers: [
-            { hue: '#ffff00' },
-            { saturation: 30 },
-            { lightness: 10}
+            { "hue": "#00ff33" },
+            { "saturation": -68 }
           ]}
         ]);
 

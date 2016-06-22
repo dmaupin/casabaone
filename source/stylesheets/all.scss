@@ -63,6 +63,18 @@ span {
   font-weight: 200;
 }
 
+// Material
+
+.shadow {
+    box-shadow: 0 7px 10px rgba(0,0,0,0.12), 0 3px 3px rgba(0,0,0,0.15);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.shadow:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
 // Buttons
 
 // Hero slide show
@@ -86,7 +98,11 @@ span {
     h1 {
       color: white;
       font-weight: 900;
-      margin-bottom: 0;
+      margin-bottom: -40px;
+    }
+
+    .dingbat {
+      width: 15%;
     }
 
     @include media($large-screen) {
@@ -255,6 +271,8 @@ span {
 
   display: flex;
   flex-wrap: wrap;
+  display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
   margin: 1em;
   margin-bottom: $base-line-height;
   overflow: auto;
@@ -558,7 +576,7 @@ span {
   background-color: $accent;
   padding: 5em;
   padding-bottom: 7em;
-  margin-bottom: 7em;
+  margin-bottom: 1em;
 
   p {
     text-align: left;
@@ -629,16 +647,26 @@ span {
   width: 100%;
 
   .footer-logo {
-    margin-top: 3em;
-    margin-bottom: 2em;
+    margin-bottom: -2em;
     text-align: center;
 
     img {
-      height: 3em;
+      height: 10em;
+    }
+  }
+
+  .dingbat {
+    margin-top: 2em;
+    width: 100%;
+    margin-left: auto;
+    text-align: center;
+    img {
+      height: 5em;
     }
   }
 
   .footer-links {
+    font-family: $roboto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -650,6 +678,7 @@ span {
     flex-shrink: 0;
     margin-bottom: $base-spacing * 2;
     padding: 0;
+    display: inline-block;
   }
 
   li {
@@ -658,21 +687,21 @@ span {
     text-align: center;
   }
 
-  li a {
-    color: $footer-link-color;
-    text-decoration: none;
+  // li a {
+  //   color: $footer-link-color;
+  //   text-decoration: none;
 
-    &:focus,
-    &:hover {
-      color: transparentize($footer-color, 0);
-    }
-  }
+  //   &:focus,
+  //   &:hover {
+  //     color: transparentize($footer-color, 0);
+  //   }
+  // }
 
-  li h3 {
-    color: $footer-color;
-    font-size: 1em;
-    margin-bottom: 0.4em;
-  }
+  // li h3 {
+  //   color: $footer-color;
+  //   font-size: 1em;
+  //   margin-bottom: 0.4em;
+  // }
 
   hr {
     border: 1px solid transparentize($footer-disclaimer-color, 0.3);

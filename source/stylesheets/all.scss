@@ -71,8 +71,8 @@ span {
 }
 
 .shadow:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  transform: translate(1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
 }
 
 // Buttons

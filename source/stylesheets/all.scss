@@ -13,6 +13,7 @@
 body {
   font-size: 100%;
   font-weight: normal;
+  transition: all 0.25s ease;
 }
 
 // Colors
@@ -27,7 +28,8 @@ $accent: #AECABC;
 
 $large-screen: 50em !default;
 
-$mobile: 799px;
+// $mobile: 799px;
+$mobile: new-breakpoint(max-width 799px);
 
 $playfair: 'Trirong', serif;
 $roboto: 'Roboto', sans-serif;
@@ -38,6 +40,7 @@ $robototitle: 'Roboto', sans-serif;
 h1 {
   font-family: $playfair;
   font-weight: 400;
+  line-height: 1.5em;
 }
 
 h2 {
@@ -94,15 +97,25 @@ span {
     position: relative;
     z-index: 4;
     padding: 0 5%;
+    left: -20px;
 
     h1 {
       color: white;
       font-weight: 900;
-      margin-bottom: -40px;
+      margin-bottom: 5px;
+      line-height: 1em;
+
+      @include media($mobile) {
+        line-height: 1;
+        margin-bottom: 0;
+      }
     }
 
     .dingbat {
       width: 15%;
+      @include media ($mobile) {
+        width: 25%;
+      }
     }
 
     @include media($large-screen) {
@@ -182,7 +195,8 @@ span {
     background: url("/images/Doug.jpg"),
                 linear-gradient($side-image-background-top, $side-image-background-bottom),
                 no-repeat $side-image-background-top scroll;
-    background-color: $side-image-background-top;
+    background-color: $accent;
+    background-position: center;
     background-size: cover;
     // border-bottom: $side-image-border;
     display: block;
@@ -611,6 +625,11 @@ span {
     .clear {
       width: 25%;
       margin-left: 2px;
+
+      @include media($mobile){
+        width: 100%;
+        margin-left: 0px;
+      }
 
     input {
       appearance: none;

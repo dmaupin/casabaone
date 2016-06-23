@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+@-ms-viewport{
+  width: device-width;
+}
+
 @import "bourbon";
 @import "neat";
 @import "unslider-dots";
@@ -29,7 +33,7 @@ $accent: #AECABC;
 $large-screen: 50em !default;
 
 // $mobile: 799px;
-$mobile: new-breakpoint(max-width 699px);
+$mobile: new-breakpoint(max-width 600px);
 
 $playfair: 'Trirong', serif;
 $roboto: 'Roboto', sans-serif;

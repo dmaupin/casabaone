@@ -162,9 +162,9 @@ span {
      }
      
      li:nth-child(2){
-      background: image-url("slide2.png");
-      background-size: cover;
+      background: image-url("slide2.png");      
       @include animation-delay(3s);
+      background-size: cover;
       background-position: center;
      }
 
@@ -248,11 +248,13 @@ span {
     }
 
     .fa {
-      color: $accent
+      color: white;
+      text-align: center;
     }
 
     a {
       text-decoration: none;
+      border-bottom: 1px solid transparentize($base-font-color, 0.8);
       color: black;
     }
 
@@ -265,12 +267,21 @@ span {
     
     .bullet-icon {
       background: $accent;
-      // border-radius: 50%;
       float: left;
       height: $icon-bullet-size;
       padding: $icon-bullet-size / 8;
       width: $icon-bullet-size;
       margin-right: 1em;
+    }
+
+    .contact-icon {
+      float: left;
+      height: 2em;
+      width: 2em;
+      background-color: $accent;
+      border-radius: 100%;
+      padding: .5em;
+      margin-right: .25em;
     }
   }
 
@@ -585,18 +596,12 @@ span {
 
 .mailing {
   min-width: 100%;
-  // height: 25vh;
   background-color: $accent;
   padding: 3em;
   padding-bottom: 5em;
-
-  p {
-    text-align: left;
-    -webkit-column-count: 1;
-  }
+  margin-left: auto;
 
   .mailform {
-      // display: flex;
       width: 100%;
 
     #mc_embed_signup_scroll {
@@ -606,17 +611,42 @@ span {
 
     .mc-field-group {
       width: 100%;
+      display: flex;
 
     input {
-      font-family: $roboto; 
+      font-family: $roboto;
+      background-color: $accent;
       height: 3em;
       padding: .5em;
       width: 100%;
       border: none;
       border-radius: 2px;
+      border-bottom: 2px solid white;
+      color: white;
+      transition: border-bottom .25s;
       @include media($mobile) {
         width: 100%;
       }
+    }
+
+    input.email:focus,
+    select.email:focus,
+    textarea.email:focus,
+    button.email:focus {
+        outline: none;
+        border-bottom: 2px #898989 solid;
+        transition: border-bottom .25s;
+      }
+
+      input.email:active,
+      select.email:active,
+      textarea.email:active,
+      button.email:active {
+        background-color: $accent;
+      }
+
+    ::-webkit-input-placeholder {
+      color: white;
     }
     
     }

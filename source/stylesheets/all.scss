@@ -263,7 +263,7 @@ span {
       transition: color .25s;
     }
 
-    $icon-bullet-size: 5em;
+    $icon-bullet-size: 4em;
     
     .bullet-icon {
       background: $accent;
@@ -497,12 +497,13 @@ span {
   color: $accent;
   margin-top: -1250px;
   @include media($large-screen) {
-    margin-top: -560px;
+    margin-top: 0;
   }
 }
 
 .unslider-arrow {
   left: 4em;
+  margin-top: 1em;
 }
 
 .unslider-arrow.next {
@@ -549,14 +550,11 @@ span {
   border:none;
 }
 
-.unslider-nav {
-  margin-bottom: 2.75em;
-}
-
 .unslider-nav ol li {
   border: 2px solid $accent;
   width: 10px;
   height: 10px;
+  margin-top: 1.5em;
 }
 
 .unslider-nav ol li.unslider-active {

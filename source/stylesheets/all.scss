@@ -604,11 +604,11 @@ span {
 
     #mc_embed_signup_scroll {
       display: flex;
-      min-width: 100%;
+      min-width: 90%;
     }
 
     .mc-field-group {
-      width: 100%;
+      width: 90%;
       display: flex;
 
     input {
@@ -616,7 +616,7 @@ span {
       background-color: $accent;
       height: 3em;
       padding: .5em;
-      width: 100%;
+      width: 90%;
       border: none;
       border-radius: 2px;
       border-bottom: 2px solid white;
@@ -636,15 +636,30 @@ span {
         transition: border-bottom .25s;
       }
 
-      input.email:active,
-      select.email:active,
-      textarea.email:active,
-      button.email:active {
+    input.email:active,
+    select.email:active,
+    textarea.email:active,
+    button.email:active {
         background-color: $accent;
       }
 
-    ::-webkit-input-placeholder {
+    .label-style {
+      left: 3.5em;
+      margin-top: 15px;
       color: white;
+      text-align: left;
+      position: absolute;
+      pointer-events: none;
+      transition: 0.2s ease all; 
+      -moz-transition: 0.2s ease all; 
+      -webkit-transition:0.2s ease all;
+    }
+
+    .is-focused {
+      margin-top: -5px;
+      color: #898989;
+      font-size: .5em;
+      left: 5.5em;
     }
     
     }
@@ -652,7 +667,7 @@ span {
   }
 
     .clear {
-      width: 25%;
+      width: 15%;
       margin-left: 2px;
 
       @include media($mobile) {

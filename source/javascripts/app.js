@@ -81,3 +81,13 @@ $(document).ready(function () {
     }
   });
 });
+
+// Form Animation - add class to email form label
+
+$(document).ready(function () {
+  $('#mce-EMAIL').on('blur', function(){
+     $(this).next('#the-label').removeClass('is-focused');
+  }).on('focus', function(){
+    $(this).next('#the-label').addClass('is-focused');
+  });
+});

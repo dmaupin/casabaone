@@ -23,42 +23,39 @@ body {
 // Colors
 
 $accent: #AECABC;
+$grey: #F9F9F9;
 
 *::selection {
   background-color: $accent;
 }
 
-// Variables
+// Global Variables
 
 $large-screen: 50em !default;
-
-// $mobile: 799px;
 $mobile: new-breakpoint(max-width 600px);
-
-$playfair: 'Trirong', serif;
-$roboto: 'Roboto', sans-serif;
-$robototitle: 'Roboto', sans-serif;
+$serif: 'Trirong', serif;
+$sans: 'Roboto', sans-serif;
 
 // Typography
 
 h1 {
-  font-family: $playfair;
+  font-family: $serif;
   font-weight: 400;
   line-height: 1.5em;
 }
 
 h2 {
-  font-family: $roboto;
+  font-family: $sans;
   font-weight: 400;
 }
 
 p {
-  font-family: $roboto;
+  font-family: $sans;
   letter-spacing: 0.025em;
 }
 
 h3 {
-  font-family: $roboto;
+  font-family: $sans;
   font-weight: 200;
   color: white;
 }
@@ -66,11 +63,11 @@ h3 {
 span {
   color: white;
   font-size: 2em;
-  font-family: $playfair;
+  font-family: $serif;
   font-weight: 200;
 }
 
-// Material
+// Material Shadows
 
 .shadow {
     box-shadow: 0 7px 10px rgba(0,0,0,0.12), 0 3px 3px rgba(0,0,0,0.15);
@@ -81,8 +78,6 @@ span {
   box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.12);
   transform: translateY(-2px);
 }
-
-// Buttons
 
 // Hero slide show
 
@@ -130,88 +125,74 @@ span {
   }
 }
 
-  // Hero animation
+// Hero animation
 
-  @include keyframes(fade-out) {
-   33%{
+@include keyframes(fade-out) {
+  33%{
     opacity: 1
-   }
-   66%{
+  }
+  66%{
    opacity: 0
-   }
+  }
+}
+
+// Hero
+
+ul.hero-slideshow{
+  list-style: none;
+  display: inline;
+  background-color: $accent;
+
+  // Slideshow image one
+
+  li{  
+    height: 35em;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    background-color: $accent;
+    z-index: 0;
+    opacity: 0;
+    background: image-url("slide1.png");
+    background-size: cover;
+    @include animation(fade-out 9s infinite both);
+  }
+  
+  // Slideshow image two
+
+  li:nth-child(2){
+    background: image-url("slide2.png");    
+    @include animation-delay(3s);
+    background-size: cover;
+    background-position: center;
   }
 
-  ul.hero-slideshow{
-      list-style: none;
-      display: inline;
-      background-color: $accent;
+  // Slideshow image three
 
-     li{  
-      height: 35em;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      background-position: center;
-      background-size: cover;
-      background-color: $accent;
-      z-index: 0;
-      opacity: 0;
-      background: image-url("slide1.png");
-      background-size: cover;
-      @include animation(fade-out 9s infinite both);
-     }
-     
-     li:nth-child(2){
-      background: image-url("slide2.png");      
-      @include animation-delay(3s);
-      background-size: cover;
-      background-position: center;
-     }
+  li:nth-child(3){
+    background: image-url("slide3.png");
+    @include animation-delay(6s);
+    background-size: cover;
+    background-position: center;
+  }
+}
 
-     li:nth-child(3){
-      background: image-url("slide3.png");
-      @include animation-delay(6s);
-      background-size: cover;
-      background-position: center;
-     }
-    }
-
-// Info
+// Property Info
 
 .side-image {
   $base-line-height: 1.5em !default;
-  $action-color: #477DCA !default;
+  $action-color: $accent !default;
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
   $base-font-color: $dark-gray !default;
-  $side-image-background-top: #B5EBEB;
-  $side-image-background-bottom: #5DAC5D;
-  $side-image-content-background: #F9F9F9;
-  $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
+  $side-image-content-background: $grey;
 
   background: $side-image-content-background;
 
   @include media($large-screen) {
     @include row(table);
-  }
-
-  .images-wrapper {
-    background: url("/images/Doug.jpg"),
-                linear-gradient($side-image-background-top, $side-image-background-bottom),
-                no-repeat $side-image-background-top scroll;
-    background-color: $accent;
-    background-position: center;
-    background-size: cover;
-    display: block;
-    min-height: 35em;
-    padding: 3em;
-
-    @include media($large-screen) {
-      @include span-columns(4);
-      background-position: bottom;
-      background-size: cover;
-      // border-right: $side-image-border;
-    }
   }
 
   .side-image-content {
@@ -228,7 +209,7 @@ span {
     }
 
     h2 {
-      font-family: $playfair;
+      font-family: $serif;
     }
 
     h4 {
@@ -331,13 +312,12 @@ span {
 
   .bullet-content {
     margin-bottom: 2em;
-    // margin-left: $icon-bullet-size * 1.4;
   }
 
   h2 {
     border-bottom: 1px solid transparentize($base-font-color, 0.8);
     display: inline-block;
-    font-family: $playfair;
+    font-family: $serif;
     font-size: $icon-bullet-size / 2.5;
     margin: 0 0 ($icon-bullet-size / 6) 0;
     padding-top: $icon-bullet-size / 8.5;
@@ -362,11 +342,10 @@ span {
   }
 }
 
-
 // Home Models / Unslider
 
 .model-info-container {
-  background-color: #f9f9f9;
+  background-color: $grey;
   min-height: 35em;
   min-width: 100%;
   @include span-columns(12);
@@ -460,7 +439,7 @@ span {
 
   // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
   .bottom-cover {
-    background: #f9f9f9;
+    background: $grey;
     bottom: 0;
     height: 3px;
     position: absolute;
@@ -468,7 +447,7 @@ span {
   }
 
   .right-cover {
-    background: #f9f9f9;
+    background: $grey;
     height: 100%;
     position: absolute;
     right: 0;
@@ -480,12 +459,14 @@ span {
   text-align: center;
 }
 
+// Unslider
+
 .unslider{
   overflow:auto;
   position: relative;
   margin:0;
   padding:0;
-  background-color: #f9f9f9;
+  background-color: $grey;
   @include span-columns(12);
   @include omega();
 
@@ -493,7 +474,7 @@ span {
 }
 
 .unslider-arrow {
-  font-family: $roboto;
+  font-family: $sans;
   color: $accent;
   margin-top: -1250px;
   @include media($large-screen) {
@@ -588,9 +569,7 @@ span {
   margin: 0;
 }
 
-// Mail List Sign Up
-
-// Mailing list for Mailchip signup
+// Mailing list signup
 
 .mailing {
   min-width: 100%;
@@ -612,7 +591,7 @@ span {
       display: flex;
 
     input {
-      font-family: $roboto;
+      font-family: $sans;
       background-color: $accent;
       height: 3em;
       padding: .5em;
@@ -666,14 +645,13 @@ span {
 
   }
 
-    .clear {
-      width: 15%;
-      margin-left: 2px;
-
-      @include media($mobile) {
+  .clear {
+    width: 15%;
+    margin-left: 2px;
+    @include media($mobile) {
         width: 100%;
         margin-left: 0px;
-      }
+    }
 
     input {
       appearance: none;
@@ -683,15 +661,13 @@ span {
       border: none;
       border-radius: 2px;
       cursor: pointer;
-      font-family: $roboto;
+      font-family: $sans;
       height: 3em;
       padding: .5em;
       width: 100%;
     }
-
-    }
+  }
 }
-
 
 // Footer
 
@@ -713,7 +689,6 @@ span {
   .footer-logo {
     margin-bottom: -2em;
     text-align: center;
-
     img {
       height: 10em;
     }
@@ -730,7 +705,7 @@ span {
   }
 
   .footer-links {
-    font-family: $roboto;
+    font-family: $sans;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
